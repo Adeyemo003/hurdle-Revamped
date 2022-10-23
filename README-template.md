@@ -46,7 +46,7 @@ Users should be able to:
 - Mobile-first workflow
 - Media Query to aid good responsiveness on the web
 - JavaScript (Dom Manipulation)
-- CSS Animations
+- CSS Animations.
 
 
 ### What I learned
