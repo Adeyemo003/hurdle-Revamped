@@ -1,0 +1,855 @@
+:root {
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    min-width: fit-content;
+    min-height: 100vh;
+    line-height: 1.3;
+    font-family: Poppins;
+}
+
+.h1 {
+    margin-bottom: 0px;
+    font-weight: 600;
+    color: hsl(192, 100%, 9%);
+}
+/* some of this paragraph styling is for all the content on the page */
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    color: hsl(192, 100%, 9%);
+}
+
+h1 + h1 , h2{
+    margin-top: 0px;
+    font-weight: 600;
+    color: hsl(192, 100%, 9%);
+}
+
+header {
+    display: flex;
+    background: transparent;
+    width: 100%;
+    align-items: center;
+    padding: 0rem 5rem; 
+    box-sizing: border-box;
+    position: fixed;
+    z-index: 999;
+    text-align: center;
+    height: max-content;
+    backdrop-filter: blur(5px);
+}
+
+header > svg {
+    max-width: 28%;
+    margin: 0;
+    display: block;
+}
+
+nav {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    text-align: left;
+    left: 0;
+    height: 800px;
+    background-color: hsl(192, 100%, 9%);
+    transform: scale(1,0);
+    transform-origin: top;
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+}
+
+.nav-toggle:checked + nav {
+    transform: scale(1,1);
+    transition-property: transform;
+    transition-duration: 400ms;
+    transition-timing-function: ease-in-out;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;   
+    margin: 1rem;
+}
+
+nav li {
+    padding:1.4rem ;
+    border-bottom: solid 1px aliceblue;
+}
+
+nav li a {
+    color: aliceblue;
+    text-decoration: none;
+    font-weight: 600;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+nav li a:hover {
+    color: hsl(322, 100%, 66%);
+}
+
+#adds {
+    padding: 0rem;
+}
+
+/* this section is for the container that counts how many times you have click the button */
+#adds div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+    width: max-content;
+    gap: 0.3rem;
+    border: solid 1px hsl(192, 100%, 9%);
+    padding: 0rem 1.5rem;
+    border-radius: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+#adds svg {
+    background-color:  hsl(322, 100%, 66%);
+    border-radius: 100%;
+}
+
+#adds p {
+    font-weight: 600;
+    color: hsl(192, 100%, 9%);
+}
+
+.nav-toggle:checked ~ nav a{
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 200ms;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+label {
+   width: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+
+span {
+    width: 1.7rem;
+    border-radius: 5px;
+    height: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: hsl(192, 100%, 9%);
+    transition-property: width;
+    transition-duration: 50ms;
+    transition-timing-function: linear;
+}
+
+span::before {
+    content: " ";
+    width: 1.7rem;
+    border-radius: 5px;
+    height: 2px;
+    background-color: hsl(192, 100%, 9%);
+    position: absolute;
+    right: 0;
+    top: 8px;
+    transition-property: transform;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+}
+
+span::after{
+    content: " ";
+    width: 1.7rem;
+    border-radius: 5px;
+    height: 2px;
+    background-color: hsl(192, 100%, 9%);
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    transition-property: transform;
+    transition-duration: 150ms;
+    transition-timing-function: ease-in-out;
+}
+ .nav-toggle:checked~ .toggle-label>span {
+    width:0rem;
+} 
+
+.nav-toggle:checked~.toggle-label>::before {
+    transform: rotate(47deg);
+    top: 0;
+    right: 0;
+}
+
+.nav-toggle:checked~.toggle-label>::after {
+    transform: rotate(134deg);
+    bottom: 0;
+    right: 0;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
+li button {
+    background-color: white;
+    border-radius: 2rem;
+    border: none;
+    font-weight: 700;
+    font-family: 'Open Sans', sans-serif;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+}
+
+.nav-toggle:checked~ nav button {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+    transition-delay: 200ms;
+}
+
+li button:hover {
+    box-shadow: 0px  5px  7px  1px rgba(110, 110, 110, 0.493);
+}
+
+li button:active {
+    background-color: rgba(255, 255, 255, 0.719);
+}
+
+p + button {
+    border-radius: 2rem;
+    border: none;
+    font-size: 0.9rem ;
+    font-weight: 700;
+    background-color: hsl(322, 100%, 66%);
+    color: hsl(193, 100%, 96%);
+    padding: 0.9rem 2rem;
+}
+
+p + button:hover {
+    box-shadow: 0px  5px  5px  1px hsla(322, 100%, 82%, 0.274);
+}
+
+main {
+    background-image: url(../huddle-landing-page-with-alternating-feature-blocks-master/images/bg-hero-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: hsl(193, 100%, 96%);
+    display: flex;
+    height: auto;
+    width: 100%;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 5.5rem;
+    gap: 2rem;
+    min-width:100%;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 1.3rem 5rem 2rem;
+    animation-name: content;
+    animation-duration: 1000ms;
+    animation-timing-function: cubic-bezier(0.1, 0.01, 0.98, 1.02);
+}
+
+@keyframes content {
+    0% {margin-top: 1000px; opacity: 0;}
+    25% {margin-top: 700px; opacity: 0.1;}
+    50% {margin-top: 400px; opacity: 0.3;}
+    75% {margin-top: 200px; opacity: 0.4;}
+    100% { margin-top: 5.5rem; opacity: 1;}
+}
+
+.description {
+    flex: 1 0 50% ;
+    box-sizing: border-box;
+}
+
+/* i did a different media query cause i wanted an even display across all mobile phones */
+@media all and (max-width: 500px) {
+    
+    .description {
+        text-align: center;
+        line-height: 1.6;
+        padding-bottom: 0.5rem;
+    }
+
+    .description > p{
+        width: 96%;
+        margin: auto;
+    }
+
+    header {
+        padding: 0rem 1rem;
+    }
+
+    .content {
+        padding: 1.3rem 1rem 2rem;
+        font-weight: 700;
+        margin-top: 3.5rem;
+    }
+
+    @keyframes content {
+        0% {margin-top: 1000px; opacity: 0;}
+        25% {margin-top: 700px; opacity: 0.1;}
+        50% {margin-top: 400px; opacity: 0.3;}
+        75% {margin-top: 200px; opacity: 0.4;}
+        100% { margin-top: 3.5rem; opacity: 1;}
+    }
+
+    main {
+        background-image: url(../huddle-landing-page-with-alternating-feature-blocks-master/images/bg-hero-mobile.svg);
+        font-size: 1em;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .laptop-svg svg {
+        width: 900px;
+        height: 250px;
+    }
+
+    .cont-button {
+        padding: 0.9rem;
+    }
+
+    li button {
+        padding: 0.8rem 2.7rem;
+        font-size: 0.7rem ;
+    }
+
+    p + button {
+        margin-top: 1.2rem;
+        margin-bottom: 0.3rem;
+        font-size: 0.7rem ;
+        padding: 0.9rem 3.4rem;
+    }
+    
+    p + button:hover {
+        box-shadow: 0px  5px  5px  1px hsla(322, 100%, 84%, 0.274);
+    }
+
+    #adds {
+        padding: 1rem;
+    }
+
+    #adds div{
+        border-color: hsl(0, 0%, 98%);
+    }
+}
+
+/* this media query is strictly for the p cause there was no contrast with the background */
+@media (max-width: 766px) {
+    #adds p {
+        color: white;
+    }
+}
+
+.laptop-svg {
+     flex: 1 0 50%;
+   max-width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+@media all and (min-width: 768px) {
+    .toggle-label {
+        display: none;
+    }
+
+    header {
+        display: grid;
+        grid-template-columns:  auto  minmax( 900px, 2fr) ;
+        grid-auto-rows: minmax(50px,auto);
+        align-items: center;
+    }
+
+    header > svg {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        display: flex;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    nav {
+        all: unset;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav li {
+        /* margin: auto; */
+        border: none;
+    }
+
+    nav li a{
+        color: hsl(192, 100%, 9%);
+        opacity: 1;
+    }
+
+    nav a {
+        position: relative;
+    }
+
+    nav a::before {
+        content:'' ;
+        display: block;
+        height: 5px;
+        background: hsl(322, 100%, 66%);
+        position: absolute;
+        bottom: -0.5em;
+        left: 0;
+        right: 0;
+        /* if i want that hover efx to slide in from the left or right i can use transform-origin (left/right) */
+        transform: scale(0,1);
+        transition-property: transform;
+        transition-duration: 400ms;
+        transition-timing-function: ease-in-out;
+    }
+
+
+    nav a:hover::before {
+        transform: scale(1,1);
+    }
+
+    li button {
+        background-color: white;
+        border-radius: 2rem;
+        border: none;
+        padding: 0.9rem 2.5rem;
+        font-size: 0.8rem ;
+        font-weight: 700;
+        font-family: 'Open Sans', sans-serif;
+        opacity: 1;
+        transition-property: opacity;
+        transition-duration: 250ms;
+        transition-timing-function: ease-in-out;
+    }
+
+    .laptop-svg {
+        flex: 1 0 350px;
+    }
+
+    .description {
+        flex: 1 0 350px ;
+    }
+}
+
+.laptop-svg svg{
+    max-width: 100%;
+    margin: 0;
+    display: block;
+    object-fit: cover;
+}
+
+/* styling for the features */
+.features {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    padding: 10rem 5rem 20rem;
+    gap: 1.6rem;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.features div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.9rem;
+    box-sizing: border-box;
+    height: 550px;
+    gap: 3rem;
+    box-shadow: 0px  0px  9px  3px hsla(208, 10%, 61%, 0.192);
+    padding: 3rem 2rem 3rem 5rem;
+}
+
+.features div section {
+    flex: 1 0 215px;
+    align-self: center;
+}
+
+.features div figure {
+    flex: 1 0 215px;
+    align-self: center;
+}
+
+figure {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+figure img {
+   width: 100%;
+   height: 100%;
+   display: block;
+   margin: auto;
+   animation-name: features-svg;
+   animation-duration: 7000ms;
+   animation-iteration-count: infinite;
+   animation-timing-function: ease-in-out;
+   animation-fill-mode: none;
+}
+
+@keyframes features-svg {
+    0% {  opacity: 0;}
+    25% { width: 50%; height: 50%; opacity: 0.5;} 
+    50% { width: 100%; height: 100%; opacity: 1;}
+    75% { width: 50%; height: 50%; opacity: 0.5;}
+    100% { opacity: 0;}
+}
+
+.features section {
+    display: flex;
+    flex-direction: column;
+    padding: 0.3rem;
+    box-sizing: border-box;
+}
+
+section h2{
+    padding: 0;
+    height: max-content;
+    margin: 0;
+}
+
+section p {
+    color: hsl(208, 11%, 55%);
+    width: 80%;
+}
+
+@media all and (max-width: 900px) {
+    .features div {
+        padding: 3rem 1rem 1rem;
+        gap: 2rem;
+    }
+
+    .features {
+        padding: 3.5rem 1rem 12rem;
+        margin: auto;
+        font-size: 0.83em;
+    }
+    section {
+        padding: 0rem 0.7rem;
+    }
+    section p {
+        
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .features div:nth-child(1),
+    .features div:nth-child(3)
+    {
+        flex-wrap: wrap-reverse;
+    }
+}
+
+/* the fixed icon linking to my whatsapp */
+.fixed-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    padding: 0.5rem;
+    background-color: hsl(192, 100%, 9%);
+    border: none;
+    border-radius: 100%;
+    position: fixed;
+    top: 90%;
+    right: 3%;
+    box-shadow: 0px  0px  9px  3px hsl(192, 61%, 73%);
+}
+
+/* styling for the absolute container */
+#layer-1 {
+    max-width: 65%;
+    box-shadow: 0px  0px  9px  3px hsla(208, 10%, 61%, 0.192);
+    margin: auto;
+    background-color: white;
+    padding: 4rem 0rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute; 
+    left: 0;
+    right: 0;
+    top: 91%; 
+    height: auto;
+    animation-name: layer;
+    animation-duration: 1000ms;
+    animation-timing-function: cubic-bezier(0.1, 0.01, 0.98, 1.02);
+}
+
+@keyframes layer {
+    0% {top: 100%; opacity: 0;}
+    25% {top: 97%; opacity: 0.1;}
+    50% {top: 95%; opacity: 0.3;}
+    75% {top: 93%; opacity: 0.4;}
+    100% {top: 91%; opacity: 1;}
+}
+
+#layer-1 button {
+    border-radius: 2rem;
+    border: none;
+    font-size: 0.9rem ;
+    font-weight: 700;
+    background-color: hsl(322, 100%, 66%);
+    color: hsl(193, 100%, 96%);
+    padding: 1.4rem 4rem;
+}
+
+#layer-1 button:hover {
+    box-shadow: 0px  5px  5px  1px hsla(322, 100%, 82%, 0.274);
+}
+
+/* styling for the footer */
+footer {
+    background-color: hsl(192, 100%, 9%) ;
+    color: #ffffff;
+    font-size: 0.9rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    min-height: 600px;
+}
+
+.footer-cont {
+    display: grid;
+    grid-template-columns: minmax(380px , 1fr) minmax(250px,1fr) 150px;
+    gap: 3.8rem;
+    color: inherit;
+    padding: 0rem 7rem;
+    margin-top: 5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    color: inherit;
+}
+
+.c-1-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.7rem;
+}
+
+.c-1 {
+    display: grid;
+    grid-template-columns: auto minmax(auto, 1fr);
+    gap: 1.1rem;
+    align-items: center;
+}
+
+.f-1 {
+    align-items: flex-start;
+}
+.c-1 p {
+    margin: 0;
+}
+
+.location {
+    animation-name: location;
+    animation-duration: 1500ms;
+    animation-timing-function: cubic-bezier(0.1, 0.01, 0.98, 1.02);
+    animation-iteration-count: infinite;
+}
+
+@keyframes location {
+    0% { opacity: 0;}
+    25% { opacity: 0.5;}
+    50% { opacity: 1;}
+    75% {opacity: 0.5;}
+    100% {opacity: 0;}
+}
+
+.phone {
+    animation-name: phone;
+    animation-duration: 300ms;
+    animation-timing-function: cubic-bezier(0.1, 0.01, 0.98, 1.02);
+    animation-iteration-count: infinite;
+}
+
+@keyframes phone {
+    0% { transform: rotate(0deg);}
+    25% { transform: rotate(30deg); }
+    50% { transform: rotate(0deg);}
+    75% { transform: rotate(30deg);}
+    100% {transform: rotate(0deg);}
+}
+
+.gmail {
+    animation-name: gmail;
+    animation-duration: 1200ms;
+    animation-timing-function: cubic-bezier(0.1, 0.01, 0.98, 1.02);
+    animation-iteration-count: infinite;
+}
+
+@keyframes gmail {
+    0% {margin-top: -0.4rem; }
+    100% { margin-top: 0rem;  }
+}
+.svg-cont {
+    display: flex;
+    max-width: 150px;
+    justify-content: center;
+    gap: 0.8rem;
+    margin-bottom: 30%;
+}
+
+.svg-cont a{
+    display: block;
+}
+
+.svg-cont svg{
+    border: solid 1px white;
+    border-radius: 100%;
+    padding: 0.5rem;
+    margin: auto;
+    text-align: center;
+}
+
+.svg-cont svg:hover {
+    border: solid 1px hsl(322, 100%, 66%);
+}
+
+.svg-cont svg:hover path{
+    fill: hsl(322, 100%, 66%);
+}
+
+.footer-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 13%;
+}
+
+.footer-details p a{
+   color: inherit;
+   text-decoration: none;
+   transition: text-decoration 100ms ease-in;
+}
+
+.footer-details p a:hover{
+    text-decoration: underline;
+ }
+
+.footer-svg {
+    height: auto;
+    max-width: 40%;
+    margin: 0;
+    display: block;
+}
+
+.rights {
+    text-align: right;
+    padding: 0rem 5rem;
+    font-size: 0.8rem;
+}
+
+@media all and (max-width: 500px) {
+
+    .features div figure {
+        height: 250px;
+        width: 300px;
+        box-sizing: border-box;
+    }
+
+    .features div section {
+        text-align: center;
+    }
+
+    footer {
+       padding-bottom: 2rem;
+    }
+
+    .footer-cont {
+        grid-template-columns: minmax(auto , 1fr);
+        padding: 0rem 1.2rem 1.3rem;
+        gap: 3.5rem;
+        font-size: 0.9rem;
+    }
+    .footer-details {
+        grid-template-columns: 1fr;
+    }
+
+    #layer-1 {
+        max-width: 95%;
+        padding: 2rem 1rem;
+        gap: 0.5rem;
+        top: 94%;  
+    }
+
+    #layer-1 h2{
+        font-weight: 600;
+        font-size: 0.8rem; 
+    }
+    
+    #layer-1 button {
+        font-size: 1em ;
+        padding: 0.8rem 3rem;
+    }
+    
+    #layer-1 button:hover {
+        box-shadow: 0px  5px  5px  1px hsla(322, 100%, 84%, 0.274);
+    }
+
+    .c-1-cont {
+        gap: 1rem;
+    }
+
+    .svg-cont {
+        margin: auto;
+    }
+    .rights {
+        text-align: center;
+        padding: 0rem;
+        font-size: 0.5rem;
+    }
+}
+
+.attribution { font-size: 0.5rem; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
